@@ -16,6 +16,7 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
+                $router->addRoute('edit-product/<id>', 'Edit:edit');
 		return $router;
 	}
 }

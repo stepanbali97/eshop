@@ -4,10 +4,18 @@
     <a n:href="Home:default">zpět na úvodní stránku</a>
 </p>
 
+<p>
+    <a n:href="Edit:create, id => $product->id">Editovat</a>
+</p>
+
 <h2 n:block="name">{$product->name}</h2>
 
 <div class="productDetail">{$product->description}</div>
 
+<br>
+
 <div class="price">{$product->price_doge} DOGE</div>
 
-<div>Přidat do košíku</div>
+<br>
+
+<div><a n:href="Order:basket">Přidat do košíku</a></div>

@@ -9,12 +9,13 @@
 
 <ul class="navig">
 	<li><a n:href="Home:">Naše nabídka</a></li>
-        <li><a n:href="Edit:create" n:if="$user->isLoggedIn()">Přidat produkt</a></li>
+        <li><a n:href="Add:create" n:if="$user->isLoggedIn()">Přidat produkt</a></li>
 	{if $user->isLoggedIn()}
 		<li><a n:href="Sign:out">Odhlásit</a></li>
 	{else}
 		<li><a n:href="Sign:signIn">Přihlásit</a></li>
 	{/if}
+        <li><a n:href="Basket:default">Košík</a></li>
 </ul>
 
 <body>
