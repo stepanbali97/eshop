@@ -28,5 +28,20 @@ abstract class BasePresenter extends Presenter
         $this->formFactory = $formFactory;
     }
     
+    protected function startup() 
+    {
+        parent::startup();
+        if (!$this->getUser()->isAllowed($this->getName(), $this->getAction())) {
+            $this->flashMessage('Nejsi administrátor e-shopu.');
+            $this->redirect(':Home');
+        }
+    }
     
+    /* 
+     * protected function beforeRender() 
+    {
+        parent::beforeRender();
+        $this->template->admin = $this->getUser()->isInRole('admin');
+    }
+     */
 }

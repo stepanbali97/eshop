@@ -9,7 +9,7 @@ use Nette\Application\UI\Form;
 use App\UI\BasePresenter;
 
 /**
- * Description of FormFactory
+ * možná nebudu potřebovat
  *
  * @author stepanbalatka
  */

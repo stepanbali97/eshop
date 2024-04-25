@@ -11,8 +11,14 @@
     <div class="shortContent">
         {$product->short_description|truncate:255}
     </div>
+    <div class="price">
+        {$product->price_doge} DOGE
+    </div>
     <div class="btnDetail">
         <a n:href="Product:detail $product->id">Detail</a>
+    </div>
+    <div class="btnBasket">
+        Přidat do košíku
     </div>
     
         

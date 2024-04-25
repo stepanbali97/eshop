@@ -19,6 +19,16 @@ final class DbFacade
             ) {
     }
     
+    public function addProduct(string $name, string $short_description, string $description, int $price_doge) 
+    {
+        $this->database->table('products')->insert([
+           'name' => $name,
+           'short_description' => $short_description,
+           'description' => $description,
+           'price_doge' => $price_doge, 
+        ]);
+    }
+    
     public function getAllProducts()
     {
         return $this->database->table('products')->fetchAll();

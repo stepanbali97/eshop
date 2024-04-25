@@ -7,6 +7,16 @@
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Company shop</title>
 </head>
 
+<ul class="navig">
+	<li><a n:href="Home:">Naše nabídka</a></li>
+        <li><a n:href="Edit:create" n:if="$user->isLoggedIn()">Přidat produkt</a></li>
+	{if $user->isLoggedIn()}
+		<li><a n:href="Sign:out">Odhlásit</a></li>
+	{else}
+		<li><a n:href="Sign:signIn">Přihlásit</a></li>
+	{/if}
+</ul>
+
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
