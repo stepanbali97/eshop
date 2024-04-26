@@ -19,6 +19,6 @@ final class ProductPresenter extends Nette\Application\UI\Presenter
     public function renderDetail($productId) 
     {
          $this->template->product = $this->facade
-                 ->getProductById($productId);
+                 ->getProduct($productId);
     }
 }

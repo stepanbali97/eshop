@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Company shop</title>
-</head>
+        <title>{ifset title}{include title|stripHtml} | {/ifset}Company shop</title>
+    </head>
 
-<ul class="navig">
-	<li><a n:href="Home:">Naše nabídka</a></li>
-        <li><a n:href="Edit:create" n:if="$user->isLoggedIn()">Přidat produkt</a></li>
-	{if $user->isLoggedIn()}
-		<li><a n:href="Sign:out">Odhlásit</a></li>
-	{else}
-		<li><a n:href="Sign:signIn">Přihlásit</a></li>
-	{/if}
+    <ul class="navig">
+        <li><a n:href="Home:">Naše nabídka</a></li>
+
+        {if $user->isLoggedIn()}
+            <li><a n:href="Edit:create">Přidat produkt</a></li>
+            <li><a n:href="Sign:out">Odhlásit</a></li>
+            {else}
+            <li><a n:href="Sign:signIn">Přihlásit</a></li>
+            {/if}
         <li><a n:href="Basket:default">Košík</a></li>
-</ul>
+    </ul>
 
-<body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    <body>
+        <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	{include content}
+        {include content}
 
-	{block scripts}
-	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
-	{/block}
-</body>
+        {block scripts}
+        <script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
+        {/block}
+    </body>
 </html>

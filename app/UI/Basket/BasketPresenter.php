@@ -18,15 +18,10 @@ final class BasketPresenter extends Presenter {
     ) {
         
     }
-
-    /*
-     * Zjistí jestli v session existuje košík, pokud ne, tak ho vytvoří nový a následně pošle do šablony itemy
-     *  
-     */
-
-    public function renderDefault(): void {
+//facade + přejmenovat na acquireBasket
+    private function getBasket() {
         if (array_key_exists('basket_id', $_SESSION)) {
-            $basketId = $_SESSION['basket_id']; 
+            $basketId = $_SESSION['basket_id'];
             $basket = $this->facade->getBasket($basketId);
 
             if ($basket === null) { //ošetřit zda opravdu existuje id košíku
@@ -37,53 +32,51 @@ final class BasketPresenter extends Presenter {
             $basket = $this->facade->createBasket();
             $_SESSION['basket_id'] = $basket->id;
         }
+        return $basket;
+    }
+
+    /*
+     * Zjistí jestli v session existuje košík, pokud ne, tak ho vytvoří nový a následně pošle do šablony itemy
+     *  
+     */
+//zde
+    public function renderDefault(): void {
+        $basket = $this->getBasket();
 
         //pro košík vytáhnu a připravím všechny položky
         $basketItems = $this->facade->getBasketItems($basket->id);
         $this->template->basketItems = $basketItems;
     }
+//detail
+    protected function createComponentProductForm(): Form {
+        $form = new Form();
 
-    /*
-      protected function createComponentProductForm(): Form
-      {
-      $form = new Form();
+        $form->addHidden('product_id');
+        $form->addSubmit('send', 'Přidat do košíku');
+        $form->onSuccess[] = $this->addToBasket(...);
 
-      $form->addHidden('id');
-      $form->addHidden('name');
-      $form->addHidden('price_doge');
-      $form->addSubmit('send', 'Přidat do košíku');
-      $form->onSuccess[] = $this->addToBasketSucceeded(...);
+        return $form;
+    }
 
-      return $form;
-      }
-     */
-    /*
-      public function addToBasket(Form $form, array $values): void
-      {
-      // Start or resume the session
-      $this->getSession()->start();
+    public function addToBasket($values): void {
+        $basket = $this->getBasket();
 
-      // Get product details from the form
-      $productId = $values['product_id'];
-      $productName = $values['product_name'];
-      $productPrice = $values['product_price'];
+        // Get product details from the form
+        $productId = $values['product_id'];
 
-      // Initialize basket in session if not exists
-      if (!isset($_SESSION['basket'])) {
-      $_SESSION['basket'] = [];
-      }
+        $product = $this->facade->getProduct($productId);
+        if ($product === null) {
+            $this->error('Produkt nebyl nalezen');
+        }
+        $basketItem = $this->facade->getProductInBasket($product->id, $basket->id);
+        if ($basketItem === null) {
+            $this->facade->addItemToBasket($product, $basket);
+        }
+        $this->flashMessage("Produkt je v košíku!", 'success');
 
-      // Add product to basket
-      $_SESSION['basket'][] = [
-      'id' => $productId,
-      'name' => $productName,
-      'price' => $productPrice
-      ];
+        // Redirect back to product detail page or wherever you want
+        $this->redirect('Basket:default');
+    }
 
-      // Redirect back to product detail page or wherever you want
-      $this->redirect('this');
-      }
-     */
-
-    //druhá metoda která udělá insert do košíku (id produktu a id košíku) zjistim existenci košíku
+    
 }

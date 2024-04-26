@@ -69,12 +69,22 @@ final class DbFacade {
         return $this->database->table('products')->order('name')->fetchAll();
     }
 
-    public function getProductById($productId) {
-        return $this->database->table('products')->get($productId);
-    }
-
     //vyberu podle id košíku z order_item 
     public function getBasketItems(int $basketId) {
         return $this->database->table('order_item')->where('order_id', $basketId)->fetchAll();
+    }
+
+    public function getProductInBasket(int $productId, int $orderId): ?\Nette\Database\Table\ActiveRow {
+        return $this->database->table('order_item')->where('products_id = ? AND order_id = ?', $productId, $orderId)->fetch();
+    }
+
+    public function addItemToBasket($product, $basket): ?\Nette\Database\Table\ActiveRow {
+        $addItem = $this->database->table('order_item')->insert([
+            'products_id' => $product->id,
+            'order_id' => $basket->id,
+            'name' => $product->name,
+            'price' => $product->price_doge,
+        ]);
+        return $addItem;
     }
 }
