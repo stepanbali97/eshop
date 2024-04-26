@@ -8,7 +8,7 @@ use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
 
-final class HomePresenter extends Nette\Application\UI\Presenter {
+final class HomePresenter extends Presenter {
 
     public function __construct(
             private DbFacade $facade,

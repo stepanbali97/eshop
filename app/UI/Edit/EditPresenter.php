@@ -19,6 +19,7 @@ final class EditPresenter extends Presenter
 {
     public function __construct(
             private \Nette\Database\Explorer $database,
+            private \App\Models\DbFacade $db,
     ) {
         
     }
@@ -39,13 +40,19 @@ final class EditPresenter extends Presenter
     
     private function productFormSucceeded(array $data): void 
     {
-        $productId = $this->getParameter('productId');
+        $productId = (int)($this->getParameter('productId'));
+        //$name = (string)($this->getParameter('name'));
+        //$short_description = (string)($this->getParameter('short_description'));
+        //$description = (string)($this->getParameter('description'));
+        //$price_doge = (int)($this->getParameter('price_doge'));
         
         if ($productId) {
-            $product = $this->database->table('products')->get($productId);
+            $product = $this->db->getProduct($productId);
+            //$product = $this->database->table('products')->get($productId);
             $product->update($data);
         } else {
-            $product = $this->database->table('products')->insert($data);
+            //$product = $this->db->addProduct($name, $short_description, $description, $price_doge);
+             $product = $this->database->table('products')->insert($data);
         }
         
         $this->flashMessage("Produkt byl úspěšně přidán.", 'success');
@@ -54,7 +61,8 @@ final class EditPresenter extends Presenter
     
     public function renderEdit(int $productId):void 
     {
-        $product = $this->database->table('products')->get($productId);
+        $product = $this->db->getProduct($productId);
+        // $product = $this->database->table('products')->get($productId);
         
         if (!$product) {
             $this->error('Product nebyl nalezen');
