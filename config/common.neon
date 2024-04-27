@@ -9,7 +9,7 @@ application:
 
 
 database:
-	dsn: 'pgsql:host=172.17.0.3;dbname=db_eshop'
+	dsn: 'pgsql:host=172.17.0.4;dbname=db_eshop'
 	user: 'stepanbalatka'
 	password: 'balatka'
 

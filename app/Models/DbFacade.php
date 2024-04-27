@@ -47,6 +47,20 @@ final class DbFacade {
         ]);
         return $newRow;
     }
+    
+    public function addInformation(array $data) {
+        $addInfo = $this->database->table('order')->update([
+            
+            'addressee_name' => $data['addressee_name'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'postcode' => $data['postcode'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            
+        ]);
+        return $addInfo;
+    }
 
     public function getProduct(int $id): ?\Nette\Database\Table\ActiveRow {
         return $this->database->table('products')->get($id);
@@ -55,6 +69,8 @@ final class DbFacade {
     public function getBasket(int $id): ?\Nette\Database\Table\ActiveRow {
         return $this->database->table('order')->where('status', 0)->get($id);
     }
+    
+    
 
     public function getAllProducts() {
         return $this->database->table('products')->order('name')->fetchAll();

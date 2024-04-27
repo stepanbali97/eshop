@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'nette/web-project',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '0d2100e2b9c8dcd8231a0758daa835bbe57437a7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.8.3',
-            'version' => '3.8.3.0',
-            'reference' => 'db922ba9436b7b18a23d1653a0b41ff2369ca41c',
+            'pretty_version' => '3.8.4',
+            'version' => '3.8.4.0',
+            'reference' => 'b05e48a745f722801f55408d0dbd8003b403dbbd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
@@ -290,9 +290,9 @@
             'dev_requirement' => false,
         ),
         'nette/web-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '0d2100e2b9c8dcd8231a0758daa835bbe57437a7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

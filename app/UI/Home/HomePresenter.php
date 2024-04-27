@@ -7,6 +7,8 @@ namespace App\UI\Home;
 use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
+use Nette\Application\UI\Form;
+use  Nette\Application\UI\Multiplier;
 
 final class HomePresenter extends Presenter {
 
@@ -20,4 +22,15 @@ final class HomePresenter extends Presenter {
         $this->template->products = $this->facade
                 ->getAllProducts();
     }
+    /*
+    protected function createComponentaddToBasketForm(): Multiplier
+{
+	return new Multiplier(function ($productId) {
+		$form = new Form;
+		$form->addHidden('productId', $productId);
+		$form->addSubmit('send', 'Přidat do košíku');
+		return $form;
+	});
+}
+*/
 }

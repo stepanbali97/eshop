@@ -7,6 +7,8 @@ namespace App\UI\Edit;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
+use App\Models\DbFacade;
+
 
 /**
  * Description of EditPresenter
@@ -16,8 +18,8 @@ use Nette\Application\UI\Presenter;
 final class EditPresenter extends Presenter {
 
     public function __construct(
-            private \Nette\Database\Explorer $database,
-            private \App\Models\DbFacade $db,
+            // private \Nette\Database\Explorer $database,
+            private DbFacade $facade,
     ) {
         
     }
@@ -39,11 +41,11 @@ final class EditPresenter extends Presenter {
         $productId = (int) ($this->getParameter('productId'));
 
         if ($productId) {
-            $product = $this->db->getProduct($productId);
+            $product = $this->facade->getProduct($productId);
             //$product = $this->database->table('products')->get($productId);
             $product->update($data);
         } else {
-            $product = $this->db->addProduct(
+            $product = $this->facade->addProduct(
                     $data['name'],
                     $data['short_description'],
                     $data['description'],
@@ -57,7 +59,7 @@ final class EditPresenter extends Presenter {
     }
 
     public function renderEdit(int $productId): void {
-        $product = $this->db->getProduct($productId);
+        $product = $this->facade->getProduct($productId);
         // $product = $this->database->table('products')->get($productId);
 
         if (!$product) {
