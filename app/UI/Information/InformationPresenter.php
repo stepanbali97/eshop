@@ -52,7 +52,7 @@ final class InformationPresenter extends Presenter
             $this->flashMessage("Nebyl vybrán žádný produkt. Vyber produkt a vlož jej do košíku.");
         }
        
-        $this->redirect('Home:');
+        $this->redirect('ShippingPayment:');
     }
  
 }

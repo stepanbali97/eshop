@@ -1,5 +1,5 @@
 parameters:
-        IMAGES_PATH: '%wwwDir%/images/products/'
+        
 
 application:
 	errorPresenter:
