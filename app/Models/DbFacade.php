@@ -30,15 +30,6 @@ final class DbFacade {
         return $newProduct;
     }
 
-    public function editProduct(int $id, string $name, string $short_description, string $description, int $last_price_doge, int $price_doge) {
-        $this->database->table('products')->where('id', $id)->update([
-            'name' => $name,
-            'short_description' => $short_description,
-            'description' => $description,
-            'last_price_doge' => $last_price_doge,
-            'price_doge' => $price_doge,
-        ]);
-    }
 
     public function createBasket() {
         $newRow = $this->database->table('order')->insert([

@@ -8,7 +8,7 @@
 {else}	
     {foreach $basketItems as $basketItem}
         <div class="name">
-            <a n:href="Product:detail $basketItem->product_id">{$basketItem->name}</a>
+            <a n:href="Product:detail $basketItem->products_id">{$basketItem->name}</a>
         </div>
         <div class="price">
             {$basketItem->price} DOGE
