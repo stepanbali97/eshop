@@ -1,22 +1,32 @@
 {block content}
 
-<p>
-    <a n:href="Home:default">zpět na úvodní stránku</a>
-</p>
+<div class="btnback">
+    <a n:href="Home:default"> ← zpět na úvodní stránku</a>
+</div>
 
-<p>
+
+
+<h2 class="namedetail" n:block="name">{$product->name}</h2>
+
+<div class="btnback">
     <a n:href="Edit:edit $product->id" n:if="$user->isLoggedIn()">Editovat</a>
-</p>
-
-<h2 n:block="name">{$product->name}</h2>
+</div>
 
 <div class="productDetail">{$product->description}</div>
 
-<br>
 
-<div class="price">{$product->price_doge} DOGE</div>
+<div >
+<div class="pricedetail">{$product->price_doge} DOGE</div>
+</div>
 
-<br>
 
 
-{control productForm}
+
+
+
+<form n:name=productForm class=form>
+    	
+	<div>
+		<input n:name=send class="btn btn-default">
+	</div>
+</form>

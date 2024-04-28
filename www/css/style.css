@@ -1,0 +1,218 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 10em;    
+}
+
+.pagename {
+    margin-left: 5em;
+    margin-bottom: 4em;
+    font-size: 1.5em;
+    font-family: Arial;
+}
+
+.navbar {
+    background-color: #3498db; 
+    border: none;
+    text-align: center;
+}
+
+.navbar-nav {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav .nav-item {
+    display: inline-block;
+    padding: 1.3em;
+}
+
+.navbar-nav .nav-item a {
+    color: #fff; 
+    padding: 1.0em 1.2em; 
+    text-decoration: none;
+}
+
+.navbar-nav .nav-item a:hover {
+    background-color: #2980b9; 
+}
+
+.footer {
+    background-color: #3498db; 
+    color: #fff; 
+    padding: 2em 0;
+    margin-top: 3.5em; 
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -0.1em 0.3em rgba(0, 0, 0, 0.5); 
+    position: absolute;
+  height: 2.5em;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.form {
+    max-width: 300px; 
+    margin: 0 auto; 
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+.form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"]{
+    width: 100%;
+    padding: 8px; 
+    margin-bottom: 15px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus{
+    outline: none;
+    border-color: #3498db; 
+}
+
+.form .btn {
+    width: 100%;
+    padding: 10px; 
+    background-color: #3498db; 
+    color: #fff; 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.form .btn:hover {
+    background-color: #2980b9; 
+}
+
+.product {
+    border: 0.1em solid #3498db;
+    margin: 0.3em;
+    padding: 0.5em;
+}
+
+.shortContent {
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+.price {
+    border: 0.05em solid #ef4343;
+    margin: 0.8em;
+    width: 10%;
+    padding: 1em;
+}
+
+.btnDetail {
+    width: 100%;
+    margin: 0.5em 3em;
+    
+}
+
+.btnDetail a {
+    display: inline-block;
+    padding: 1em 4em;
+    background-color: #3498db; 
+    color: #fff; 
+    text-decoration: none;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.btnDetail a:hover {
+    background-color: #ff0000; 
+}
+
+.pricedetail {
+    border: 0.05em solid #ef4343;
+    margin: 2.5em 36em;
+    padding: 1em;
+    text-align: center;
+}
+
+.productDetail {
+    font-family: Verdana;
+    font-size: 14px;
+    margin: 1.5em;
+}
+
+.namedetail {
+    font-family: Arial;
+    font-size: 32px;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+.editbtn a, .btnback a, .btnnext a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 1em 1em;
+    background-color: white; 
+    color: black; 
+    text-decoration: none;
+    border: 0.1em solid;
+    border-radius: 0.3em;
+    transition: background-color 0.5s ease;
+}
+
+.editbtn a:hover, .btnback a:hover, .btnnext a:hover {
+    background-color: #cecece; 
+}
+
+.basketitem {
+     border: 0.1em solid #3498db;
+    margin: 0.3em;
+    padding: 0.5em;
+}
+
+.productnamebasket {
+    display: inline-block;
+    width: 60%; 
+    margin-right: 2em;
+    font-size: 18px;
+}
+
+.pricebasket {
+    display: inline-block;
+    width: 30%; 
+    text-align: right;
+}
+
+.productnamebasket a {
+    text-decoration: none;
+    color: black;
+    padding: 1em;
+}
+
+.btndelete {
+    margin-top: 1em;
+    text-align: right;
+    margin-right: 6em;
+}
+
+.choice {
+    padding-bottom: 1em;
+    font-size: 18px;
+    font-weight: bold;
+}

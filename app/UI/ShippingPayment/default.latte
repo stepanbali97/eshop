@@ -1,3 +1,28 @@
 {block content}
 
-{control shippingPaymentForm}
+
+
+
+
+<div class="pagename">
+<h2 n:block=title>Způsob dopravy a platby</h2>
+</div>
+
+
+<form n:name=shippingPaymentForm class=form>
+     <div class="choice">Doprava</div>
+    {foreach $form[shipping_type]->getItems() as $key => $label}
+	<label n:name="shipping_type:$key"><input n:name="shipping_type:$key"> {$label}</label>
+    {/foreach}
+    <div class="choice">Platba</div>
+    {foreach $form[payment_type]->getItems() as $key => $label}
+	<label n:name="payment_type:$key"><input n:name="payment_type:$key"> {$label}</label>
+    {/foreach}
+
+	<div>
+		<input n:name=submit class="btn btn-default">
+	</div>
+     
+</form>
+
+ 

@@ -1,4 +1,27 @@
 {block content}
-<h2>Nový produkt</h2>
 
-{control productForm}
+<div class="pagename">
+    <h2 n:block=title>Nový produkt</h2>
+</div>
+
+
+
+
+
+<form n:name=productForm class=form>
+    <div>
+        <label n:name=name>Název produktu: <input n:name=name size=20 autofocus></label>
+    </div>
+    <div>
+        <label n:name=short_description>Krátký popis: <input n:name=short_description></label>
+    </div>
+    <div>
+        <label n:name=description>Celý popis: <textarea n:name=description autofocus></textarea></label>
+    </div>
+    <div>
+        <label n:name=price_doge>Prodejní cena: <input n:name=price_doge></label>
+    </div>
+    <div>
+        <input n:name=send class="btn btn-default">
+    </div>
+</form>

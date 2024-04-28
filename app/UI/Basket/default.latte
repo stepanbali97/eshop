@@ -1,26 +1,30 @@
 {block content}
 
-<h2>Můj košík</h2>
-<br>
+<div class="pagename">
+    <h2 n:block=title>Můj košík</h2>
+</div>
 
 {if count($basketItems) === 0 }
     <p>Váš košík je prázdný</p>
 {else}	
     {foreach $basketItems as $basketItem}
-        <div class="name">
+        <div class="basketitem">
+        <div class="productnamebasket">
             <a n:href="Product:detail $basketItem->products_id">{$basketItem->name}</a>
         </div>
-        <div class="price">
+        <div class="pricebasket">
             {$basketItem->price} DOGE
         </div>
         <div class="btndelete">
             Vymazat
         </div>
-        <br>
+        </div>
     {/foreach}
-    <br>
+
+
     <div class="btnnext">
         <a n:href="Information:info">Pokračovat na fakturační údaje</a>
     </div>
 {/if}
 {/block}
+

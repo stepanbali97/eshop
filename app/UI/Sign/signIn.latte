@@ -1,4 +1,19 @@
 {block content}
-<h2 n:block=title>Přihlášení</h2>
 
-{control signInForm}
+
+<div class="pagename">
+<h2 n:block=title>Přihlášení</h2>
+</div>
+
+
+<form n:name=signInForm class=form>
+    	<div>
+		<label n:name=username>Jméno: <input n:name=username size=20 autofocus></label>
+	</div>
+	<div>
+		<label n:name=password>Heslo: <input n:name=password></label>
+	</div>
+	<div>
+		<input n:name=send class="btn btn-default">
+	</div>
+</form>

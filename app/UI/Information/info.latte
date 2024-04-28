@@ -1,4 +1,37 @@
 {block content}
-<h2>Fakturační údaje</h2>
 
-{control informationForm}
+<div class="pagename">
+<h2 n:block=title>Fakturační údaje</h2>
+</div>
+
+
+
+
+<form n:name=informationForm class=form>
+    <div>
+        <label n:name=addressee_name>Jméno a příjmení: <input n:name=addressee_name size=20 autofocus></label>
+    </div>
+    <div>
+        <label n:name=address>Adresa č. p.: <input n:name=address></label>
+    </div>
+    <div>
+        <label n:name=city>Město: <input n:name=city autofocus></label>
+    </div>
+    <div>
+        <label n:name=postcode>PSČ: <input n:name=postcode></label>
+    </div>
+    <div>
+        <label n:name=email>E-mail: <input n:name=email></label>
+    </div>
+    <div>
+        <label n:name=phone>Telefonní číslo: <input n:name=phone></label>
+    </div>
+    <div>
+        <input n:name=submit class="btn btn-default">
+    </div>
+</form>
+
+
+
+
+
