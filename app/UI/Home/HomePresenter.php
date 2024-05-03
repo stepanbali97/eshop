@@ -22,15 +22,16 @@ final class HomePresenter extends Presenter {
         $this->template->products = $this->facade
                 ->getAllProducts();
     }
-    /*
-    protected function createComponentaddToBasketForm(): Multiplier
-{
-	return new Multiplier(function ($productId) {
+    
+    protected function createComponentAddToBasketForm(): Multiplier
+{ 
+	return new Multiplier(function ($productId) { 
 		$form = new Form;
-		$form->addHidden('productId', $productId);
+		$form->addHidden('product_id', $productId);
 		$form->addSubmit('send', 'Přidat do košíku');
+                $form->onSuccess[] = $this->addToBasket(...);
 		return $form;
 	});
 }
-*/
+
 }

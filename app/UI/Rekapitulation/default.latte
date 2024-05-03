@@ -1,0 +1,58 @@
+{block content}
+
+<div class="pagename">
+    <h2 n:block=title>Rekapitulace objednávky</h2>
+</div>
+
+{foreach $basketItems as $basketItem}
+    <div class="basketitem">
+        <div class="productnamebasket">
+            {$basketItem->name}<a n:href="Product:detail $basketItem->products_id"></a>
+        </div>
+        <div class="pricebasket">
+            {$basketItem->price} DOGE
+        </div>
+    </div>
+{/foreach}
+<div class="sum-container">
+    <div class="shipping">
+        <span class="whitespace">
+            Doprava:
+        </span>
+        <span class="value1">
+        {$shippingType} 
+        </span>
+    </div>
+
+    <div class="payment">
+        <span class="whitespace">
+            Způsob platby: 
+        </span>
+        <span class="value">
+            {$paymentType} 
+        </span>
+    </div>
+
+
+    <div class="totalSum">
+        <span class="whitespace">
+            Celková cena: 
+        </span> 
+        <span class="value3">
+            {$totalSum} DOGE
+        </span>
+    </div>
+</div>
+
+<div class="button-container">
+    <div class="btnback">
+        <a n:href="ShippingPayment:">Zpět</a>
+    </div>
+
+    <div class="btnsubmit">
+        <a n:href="Home:">Potvrdit objednávku</a>
+    </div>
+</div>
+
+{/block}
+

@@ -76,4 +76,8 @@ final class DbFacade {
         ]);
         return $addItem;
     }
+    
+    public function getPriceOfBasketItems(int $basketId) {
+    $this->database->table('order_item')->where('order_id', $basketId)->select('price')->fetchAll();
+    }
 }

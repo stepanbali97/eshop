@@ -8,6 +8,8 @@ use Nette\Application\UI\Presenter;
 use \Nette\Application\UI\Form;
 use \App\Models\DbFacade;
 use \App\Helper\BasketHelper;
+use App\Helper\ShippingHelper;
+use App\Helper\PaymentHelper;
 /**
  * Description of ShippingPaymentPresenter
  *
@@ -18,6 +20,8 @@ final class ShippingPaymentPresenter extends Presenter
     public function __construct(
             private DbFacade $facade,
             private BasketHelper $helper,
+            private ShippingHelper $shipping,
+            private PaymentHelper $payment,
     ) {
         
     }
@@ -25,23 +29,14 @@ final class ShippingPaymentPresenter extends Presenter
     protected function createComponentShippingPaymentForm(): Form {
         $data = $this->helper->getBasket();
         
-        $choiceShipping = [
-            '0' => 'Česká pošta',
-            '1' => 'Osobní odběr',
-            '2' => 'DPD',
-            '3' => 'Zásilkovna',
-        ];
-        
-         $choicePayment = [
-            '0' => 'Převodem na bankovní účet',
-            '1' => 'Kartou', 
-            '2' => 'Kryptoměna DOGE',
-        ];
+       $shipping = $this->shipping->getShipping();
+       
+       $payment = $this->payment->getPayment();
         
         $form = new Form;
         
-        $form->addRadioList ('shipping_type', 'Doprava:', $choiceShipping)->setDefaultValue($data->shipping_type)->setRequired('Zvol způsob dopravy.');
-        $form->addRadioList ('payment_type', 'Platba:', $choicePayment)->setDefaultValue($data->payment_type)->setRequired('Zvol způsob platby.');
+        $form->addRadioList ('shipping_type', 'Doprava:', $shipping)->setDefaultValue($data->shipping_type)->setRequired('Zvol způsob dopravy.');
+        $form->addRadioList ('payment_type', 'Platba:', $payment)->setDefaultValue($data->payment_type)->setRequired('Zvol způsob platby.');
         
         $form->addSubmit('submit', 'Pokračovat k rekapitulaci objednávky');
 
@@ -55,7 +50,7 @@ final class ShippingPaymentPresenter extends Presenter
         $this->helper->getBasket()->update($data);
         
        
-        $this->redirect('Home:');
+        $this->redirect('Rekapitulation:default');
     }
  
 }

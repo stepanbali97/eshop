@@ -8,6 +8,7 @@ use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
 use Nette\Application\UI\Form;
+use App\Helper\BasketHelper;
 
 
 final class ProductPresenter extends Presenter {
@@ -17,7 +18,7 @@ final class ProductPresenter extends Presenter {
 
     public function __construct(
             private DbFacade $facade,
-            private \App\Helper\BasketHelper $helper,
+            private BasketHelper $helper,
     ) {
         
     }

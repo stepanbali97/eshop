@@ -9,22 +9,29 @@
 {else}	
     {foreach $basketItems as $basketItem}
         <div class="basketitem">
-        <div class="productnamebasket">
-            <a n:href="Product:detail $basketItem->products_id">{$basketItem->name}</a>
-        </div>
-        <div class="pricebasket">
-            {$basketItem->price} DOGE
-        </div>
-        <div class="btndelete">
-            Vymazat
-        </div>
+            <div class="productnamebasket">
+                <a n:href="Product:detail $basketItem->products_id">{$basketItem->name}</a>
+            </div>
+            <div class="pricebasket">
+                {$basketItem->price} DOGE
+            </div>
+            <div class="btndelete">
+                Vymazat
+            </div>
         </div>
     {/foreach}
 
+{/if}
+
+<div class="button-container">
+    <div class="btnback">
+        <a n:href="Home:">Zpět na nabídku produktů</a>
+    </div>
 
     <div class="btnnext">
         <a n:href="Information:info">Pokračovat na fakturační údaje</a>
     </div>
-{/if}
+</div>
+
 {/block}
 
