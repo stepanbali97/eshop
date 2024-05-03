@@ -18,21 +18,4 @@ class FormFactory
 		$form = new Form;
 		return $form;
 	}
-        
-        
-        
-        
-        
-        
-        
-        
-        public function createEditForm(): Form
-	{
-		$form = $this->createForm();
-		$form->addText('title', 'Titulek:');
-		// zde se přidávají další formulářová pole
-		$form->addSubmit('send', 'Odeslat');
-		return $form;
-	}
-
 }
