@@ -8,12 +8,14 @@ use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
 use Nette\Application\UI\Form;
-use  Nette\Application\UI\Multiplier;
+use Nette\Application\UI\Multiplier;
+use App\Forms\AddItemToBasketFormFactory;
 
 final class HomePresenter extends Presenter {
 
     public function __construct(
             private DbFacade $facade,
+            private AddItemToBasketFormFactory $formFactory,
     ) {
         
     }
@@ -22,16 +24,18 @@ final class HomePresenter extends Presenter {
         $this->template->products = $this->facade
                 ->getAllProducts();
     }
-    
-    protected function createComponentAddToBasketForm(): Multiplier
-{ 
-	return new Multiplier(function ($productId) { 
-		$form = new Form;
-		$form->addHidden('product_id', $productId);
-		$form->addSubmit('send', 'Přidat do košíku');
-                $form->onSuccess[] = $this->addToBasket(...);
-		return $form;
-	});
-}
 
+    protected function createComponentAddToBasketForm(): Multiplier {
+        return new Multiplier(function ($productId) {
+                    $form = $this->formFactory->create((int) $productId);
+                    //$form->addHidden('id', $productId);
+                    //$form->addSubmit('send', 'Přidat do košíku');
+                    $form->onSuccess[] = function () {
+
+                        $this->flashMessage("Produkt je v košíku!", 'success');
+                        $this->redirect('Basket:default');
+                    };
+                    return $form;
+                });
+    }
 }
