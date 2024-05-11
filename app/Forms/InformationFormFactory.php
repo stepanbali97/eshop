@@ -49,7 +49,7 @@ final class InformationFormFactory {
         if ($order) {
             $order->update($data); //mělo by být ve facade
         } else {
-            $this->flashMessage("Nebyl vybrán žádný produkt. Vyber produkt a vlož jej do košíku.");
+            $this->flashMessage("Nebyl vybrán žádný produkt. Vyber produkt a vlož jej do košíku."); // musí pryč jinak spadne na držku
         }
     }
 }

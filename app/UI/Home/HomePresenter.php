@@ -7,7 +7,6 @@ namespace App\UI\Home;
 use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
-use Nette\Application\UI\Form;
 use Nette\Application\UI\Multiplier;
 use App\Forms\AddItemToBasketFormFactory;
 
@@ -28,8 +27,6 @@ final class HomePresenter extends Presenter {
     protected function createComponentAddToBasketForm(): Multiplier {
         return new Multiplier(function ($productId) {
                     $form = $this->formFactory->create((int) $productId);
-                    //$form->addHidden('id', $productId);
-                    //$form->addSubmit('send', 'Přidat do košíku');
                     $form->onSuccess[] = function () {
 
                         $this->flashMessage("Produkt je v košíku!", 'success');

@@ -8,6 +8,7 @@ use Nette;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
 use App\Forms\SignInFactory;
+use Nette\Security\AuthenticationException;
 
 /**
  * Description of SignPresenter
@@ -33,7 +34,7 @@ final class SignPresenter extends Presenter {
         try {
             $this->getUser()->login($values->username, $values->password);
             $this->redirect('Home:');
-        } catch (Nette\Security\AuthenticationException $e) {
+        } catch (AuthenticationException $e) {
             $form->addError('Přihlašovací jméno nebo heslo není správné.');
         }
     }

@@ -16,8 +16,8 @@
                 {$basketItem->price} DOGE
             </div>
             <div class="btndelete">
-                Vymazat
-            </div>
+            {control "deleteItemFromBasketForm-$basketItem->products_id"}
+        </div>
         </div>
     {/foreach}
 
@@ -34,4 +34,7 @@
 </div>
 
 {/block}
+
+
+
 

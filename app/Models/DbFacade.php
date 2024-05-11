@@ -28,7 +28,7 @@ final class DbFacade {
         ]);
         return $newProduct;
     }
-    
+
     public function createBasket() {
         $newRow = $this->database->table('order')->insert([
             'price' => 0,
@@ -76,8 +76,17 @@ final class DbFacade {
         ]);
         return $addItem;
     }
-    
+
     public function getPriceOfBasketItems(int $basketId) {
-    $this->database->table('order_item')->where('order_id', $basketId)->select('price')->fetchAll();
+        return $this->database->table('order_item')->where('order_id', $basketId)->select('price')->fetchAll(); 
     }
+    
+    public function fulltextSearch(string $searchQuery) {
+        return $this->database->table('products')->where('name = ?', $searchQuery)->fetchAll(); // místo = něco co částečně vyhledává najít google
+    }
+    
+    public function deleteItemFromBasket(int $productId, int $orderId) {
+       return $this->database->table('order_item')->where('products_id = ? AND order_id = ?', $productId, $orderId)->delete();
+    }
+    
 }
