@@ -1,0 +1,31 @@
+{block content}
+
+<div class="btnback">
+    <a n:href="Home:default"> ← zpět na úvodní stránku</a>
+</div>
+
+
+{foreach $searchQueries as $searchQuery}
+<h2 class="namedetail" n:block="name">{$searchQuery->name}</h2>
+
+
+<div class="productDetail">
+    {$searchQuery->description}
+</div>
+
+
+<div >
+<div class="pricedetail"> 
+    Cena: {$searchQuery->price_doge} DOGE
+</div>
+</div>
+
+{/foreach}
+
+
+
+{*
+<div class="productnamebasket">
+                <a n:href="Product:detail $basketItem->products_id">{$basketItem->name}</a>
+            </div>
+*}

@@ -44,8 +44,8 @@ final class ShippingPaymentFactory {
         return $form;
     }
 
-    public function shippingPaymentFormSucceeded(array $data): void {
+    private function shippingPaymentFormSucceeded(array $data): void {
 
         $this->helper->getBasket()->update($data);
     }
-}   
+}

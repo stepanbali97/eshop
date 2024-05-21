@@ -33,16 +33,16 @@ final class AddItemToBasketFormFactory {
         return $form;
     }
 
-    public function addToBasketSucceeded($values): void {
+    public function addToBasketSucceeded(Form $form, $values): void {
         $basket = $this->helper->getBasket();
 
         // Get product details from the form
         
-        $productId = (int) ($values['product_id']->getValue());
+        $productId = (int) ($values['product_id']);
 
         $product = $this->facade->getProduct($productId);
         if ($product === null) {
-            $this->error('Produkt nebyl nalezen');
+            $form->addError('Produkt nebyl nalezen');
         }
         
         $basketItem = $this->facade->getProductInBasket($product->id, $basket->id);

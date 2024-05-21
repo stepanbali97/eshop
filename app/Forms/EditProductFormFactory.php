@@ -31,7 +31,7 @@ final class EditProductFormFactory {
         $form->addHidden('id', $productId);
         $form->addSubmit('send', 'Uložit a zveřejnit');
 
-        $form->onSuccess[] = $this->productFormSucceeded(...);
+        //$form->onSuccess[] = $this->productFormSucceeded(...);
 
         return $form;
     }
@@ -49,7 +49,6 @@ final class EditProductFormFactory {
                 'description' => $data['description'],
                 'price_doge' => $data['price_doge'],
             ]);
-            
         } else {
             $product = $this->facade->addProduct(
                     $data['name'],
@@ -57,7 +56,7 @@ final class EditProductFormFactory {
                     $data['description'],
                     $data['price_doge'],
             );
-            
+
             // $product = $this->database->table('products')->insert($data);
         }
     }

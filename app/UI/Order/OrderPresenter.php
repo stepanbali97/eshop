@@ -2,7 +2,7 @@
 
 declare (strict_types=1);
 
-namespace App\UI\Order;
+namespace app\UI\Order;
 
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;

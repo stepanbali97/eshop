@@ -2,9 +2,8 @@
 
 declare (strict_types=1);
 
-namespace App\UI\Sign;
+namespace app\UI\Sign;
 
-use Nette;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
 use App\Forms\SignInFactory;

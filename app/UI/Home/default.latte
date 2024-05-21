@@ -14,15 +14,19 @@
         <div class="shortContent">
             {$product->short_description|truncate:255}
         </div>
-        
-        <div class="price">
-             Cena: <br>{$product->price_doge} DOGE
-        </div>
-        <div class="btnDetail">
-            <a n:href="Product:detail $product->id">Detail</a>
-        </div>
-        <div class="">
-            {control "addToBasketForm-$product->id"}
+
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <div class="col-3 price">
+                    Cena: <br>{$product->price_doge} DOGE
+                </div>
+                <div class="col-3 btnDetail">
+                    <a n:href="Product:detail $product->id">Detail</a>
+                </div>
+                <div class="col-3 btnAddToBasket text-center">
+                    <button>{control "addToBasketForm-$product->id"}</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -32,4 +36,18 @@
 {/block}
 
 
-
+{*
+<div class="container-fluid bg-light">
+    <div class="row">
+        <div class="col-3 border bg-success text-white">
+            Čtvrtina
+        </div>
+        <div class="col-3 border bg-success text-white">
+            Čtvrtina
+        </div>
+        <div class="col-6 border bg-warning">
+            Polovina
+        </div>
+    </div>
+</div>
+*}

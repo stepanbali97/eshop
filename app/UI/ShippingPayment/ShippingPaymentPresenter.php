@@ -2,7 +2,7 @@
 
 declare (strict_types=1);
 
-namespace App\UI\ShippingPayment;
+namespace app\UI\ShippingPayment;
 
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Form;
@@ -16,7 +16,7 @@ use App\Forms\ShippingPaymentFactory;
 final class ShippingPaymentPresenter extends Presenter {
 
     public function __construct(
-            private ShippingPaymentFactory $formFactory,
+            private ShippingPaymentFactory $formFactory, 
     ) {
         
     }
@@ -24,8 +24,8 @@ final class ShippingPaymentPresenter extends Presenter {
     protected function createComponentShippingPaymentForm(): Form {
         $form = $this->formFactory->create();
         $form->onSuccess[] = function () {
-            $this->redirect('Rekapitulation:default');
-        };
+           $this->redirect('Rekapitulation:default'); //
+         };
         return $form;
     }
 }

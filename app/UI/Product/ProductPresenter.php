@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Product;
+namespace app\UI\Product;
 
-use Nette;
 use Nette\Application\UI\Presenter;
 use App\Models\DbFacade;
 use Nette\Application\UI\Form;

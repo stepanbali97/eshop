@@ -82,7 +82,7 @@ final class DbFacade {
     }
     
     public function fulltextSearch(string $searchQuery) {
-        return $this->database->table('products')->where('name = ?', $searchQuery)->fetchAll(); // místo = něco co částečně vyhledává najít google
+        return $this->database->table('products')->where('name LIKE ?', '%' . $searchQuery . '%')->fetchAll(); 
     }
     
     public function deleteItemFromBasket(int $productId, int $orderId) {

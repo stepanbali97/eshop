@@ -16,20 +16,22 @@
                 {$basketItem->price} DOGE
             </div>
             <div class="btndelete">
-            {control "deleteItemFromBasketForm-$basketItem->products_id"}
-        </div>
+                {control "deleteItemFromBasketForm-$basketItem->products_id"}
+            </div>
         </div>
     {/foreach}
 
 {/if}
 
 <div class="button-container">
-    <div class="btnback">
-        <a n:href="Home:">Zpět na nabídku produktů</a>
-    </div>
+    <div class="d-flex justify-content-between">
+        <div class="btnback">
+            <a n:href="Home:">Zpět na nabídku produktů</a>
+        </div>
 
-    <div class="btnnext">
-        <a n:href="Information:info">Pokračovat na fakturační údaje</a>
+        <div class="btnnext">
+            <a n:href="Information:info">Pokračovat na fakturační údaje</a>
+        </div>
     </div>
 </div>
 

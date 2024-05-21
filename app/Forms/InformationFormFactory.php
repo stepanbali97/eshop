@@ -37,19 +37,10 @@ final class InformationFormFactory {
 
         $form->addSubmit('submit', 'Pokračovat na způsob dopravy a platby');
 
-        $form->onSuccess[] = $this->informationFormSucceeded(...);
+        // $form->onSuccess[] = $this->informationFormSucceeded(...);
 
         return $form;
     }
 
-    public function informationFormSucceeded(array $data): void {
-
-        $order = $this->helper->getBasket();
-
-        if ($order) {
-            $order->update($data); //mělo by být ve facade
-        } else {
-            $this->flashMessage("Nebyl vybrán žádný produkt. Vyber produkt a vlož jej do košíku."); // musí pryč jinak spadne na držku
-        }
-    }
+    
 }

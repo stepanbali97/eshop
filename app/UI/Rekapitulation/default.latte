@@ -14,43 +14,80 @@
         </div>
     </div>
 {/foreach}
+
+{*<div class="flex-column justify-content-start">*}
+    <div class="sum-container">
+        <div class="d-flex justify-content-between">
+            <div>
+                Doprava:
+            </div>
+            <div>
+                {$shippingType} 
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>
+                Způsob platby: 
+            </div>
+            <div>
+                {$paymentType} 
+            </div>
+        </div>
+
+
+        <div class="d-flex justify-content-between">
+            <div>
+                Celková cena: 
+            </div>
+            <div>
+                {$totalSum} DOGE
+            </div>
+        </div>
+    </div>
+
+{*     
 <div class="sum-container">
-    <div class="shipping">
-        <span class="whitespace">
-            Doprava:
-        </span>
-        <span class="value1">
-        {$shippingType} 
-        </span>
-    </div>
+ <div class="shipping">
+     <span class="whitespace">
+         Doprava:
+     </span>
+     <span class="value1">
+         {$shippingType} 
+     </span>
+ </div>
 
-    <div class="payment">
-        <span class="whitespace">
-            Způsob platby: 
-        </span>
-        <span class="value">
-            {$paymentType} 
-        </span>
-    </div>
+ <div class="payment">
+     <span class="whitespace">
+         Způsob platby: 
+     </span>
+     <span class="value">
+         {$paymentType} 
+     </span>
+ </div>
 
 
-    <div class="totalSum">
-        <span class="whitespace">
-            Celková cena: 
-        </span> 
-        <span class="value3">
-            {$totalSum} DOGE
-        </span>
-    </div>
+ <div class="totalSum">
+     <span class="whitespace">
+         Celková cena: 
+     </span> 
+     <span class="value3">
+         {$totalSum} DOGE
+     </span>
+ </div>
 </div>
+*}
+
 
 <div class="button-container">
-    <div class="btnback">
-        <a n:href="ShippingPayment:">Zpět</a>
-    </div>
+    <div class="d-flex justify-content-between">
+        <div class="btnback">
+            <a n:href="ShippingPayment:">Zpět</a>
+        </div>
 
-    <div class="btnsubmit">
-        <a n:href="Home:">Potvrdit objednávku</a>
+        <div class="btnsubmit">
+            <a n:href="Home:">Potvrdit objednávku</a>
+        </div>
     </div>
 </div>
 
